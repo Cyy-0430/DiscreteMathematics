@@ -6,7 +6,7 @@
 ```bash
 git clone https://github.com/Cyy-0430/DiscreteMathematics.git
 ```
-3. 如果没有安装git, 那就点击页面的**Code**然后选择**Download ZIP**便可以直接使用
+3. 如果没有安装**Git**, 那就点击页面的**Code**然后选择**Download ZIP**便可以直接使用
 4. 要求环境在[**Python>=3.7.0**](https://www.python.org/)内运行，因为存在大量的**f格式化字符串**不兼容之前的版本
 ```python
 # 导入主要功能模块
