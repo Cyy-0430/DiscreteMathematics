@@ -10,17 +10,17 @@ Function = Callable[[List[Bit]], Bit]
 
 def bit_not(_p: Bit) -> Bit:
     """按位或"""
-    return int(not _p)
+    return ~_p & 1
 
 
 def contain(_p: Bit, _q: Bit) -> Bit:
     """蕴含"""
-    return int(not (_p == 1 and _q == 0))
+    return bit_not(_p) | _q  # 蕴含等值律 P -> Q == !P | Q
 
 
 def iff(_p: Bit, _q: Bit) -> Bit:
     """当且仅当"""
-    return int(_p == _q)
+    return bit_not(_p ^ _q)
 
 
 def judge(result: Result) -> str:
@@ -126,3 +126,16 @@ class Calculator:
     def print_normal_from(self) -> NoReturn:
         """获得主吸取范式和主合取范式"""
         print_normal_from(self.__result)
+
+
+if __name__ == '__main__':
+    bit_not_test = Calculator(1, lambda pro: bit_not(pro[0]))
+    bit_not_test.print_table("bit_not")
+    print("\n")
+
+    contain_test = Calculator(2, lambda pro: contain(pro[0], pro[1]))
+    contain_test.print_table("contain")
+    print("\n")
+
+    iff_test = Calculator(2, lambda pro: iff(pro[0], pro[1]))
+    iff_test.print_table("iff")
